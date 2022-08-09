@@ -1,0 +1,23 @@
+h1{
+    color: blueviolet;
+
+}
+
+#gameboard{
+    height: 600px;
+    width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.box{
+    height: 150px;
+    width: 150px; 
+    box-shadow: 10px 10px 10px 0px peru; 
+    background-color: aquamarine;
+    text-align: justify;
+}
+
