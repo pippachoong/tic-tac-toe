@@ -1,6 +1,15 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&display=swap');
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
 
 *{
     margin: 0;
@@ -8,76 +17,152 @@
 
 }
 
-body{
-    background-image:url("../images/432184e7b266064078689a861784c6ca.jpeg"),linear-gradient(rgba(0,0,0,7),rgba(0,0,0,7));
-    
+body {
+    background-image:url("../images/23048.jpeg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 100vh;
+    background-size: cover;
 }
+
+header { 
+    text-align: center;
+    height: 150px;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 60px;
+    font-weight:bold;
+    top: auto; 
+    padding-top: 50px;
+    letter-spacing: 5px;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
 .clearfix {
-  overflow: auto;
-  zoom: 1;
-  border: 2px solid red
+    overflow: auto;
+    zoom: 1;
+    margin: 0 auto; /* to centre the object*/
 }
 
 nav {
-  position: absolute;
-  left: 0px;
-  width: 200px;
-  border: 2px solid red
+    position: absolute;
+    left: 66px;
+    top: 170px;
+    width: 250px;
+    height: 500px;
+    background-color: #ef8d7c;
+    border-radius: 60px;
+    box-shadow: 5px 5px 10px 5px #89512c;
+    
 }
 
-a{
-    color: blueviolet;
-    font-family: 'Lato', sans-serif; 
+a {
+    color: rgb(255, 255, 255);
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:bold;
+    text-decoration: none;
+    padding-top: 10px;
 }
 
-h1{
-    color: blueviolet;
-    font-family: 'Lato', sans-serif;
-    font-size: 50px;
-
-
+.scoreboard{
+    color: rgb(255, 255, 255);
+    font-family: 'Josefin Sans', sans-serif;
+    margin-left: 90px;
+    margin-top: 77px;
 }
 
-#gameboard{
-    height: 600px;
-    width: 600px;
+.score{
+    background-color: #e60073;
+    width: 50px;
+    height: 30px;
+    border-radius: 60px;
+    text-align: justify;
+    justify-content: center;
+    display: flex;
+    padding: 5px;
+    text-align-last: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight:bold;
+    margin-top: 10px;
+
+}/*this is the player score box*/
+
+ul{
+    left: 66px;
+    list-style: none;
+    display: inline-block;
+    margin-left:  95px;
+    margin-top: 60px;
+}
+
+#gameboard {
+    height: 550px;
+    width: 550px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     box-sizing: border-box;
-    border: 2px solid red
+    margin: 0 auto; /* to centre the object*/
+    border-radius: 60px;
+    background-color:rgba(255, 255, 255, 0.202)
 }
 
-.box{
+.box {
     height: 150px;
     width: 150px; 
     box-shadow: 10px 10px 10px 0px peru; 
-    background-color: aquamarine;
+    background-color: rgb(171, 247, 222,0.7);
+    border-radius: 60px;
     text-align: justify;
 }
 
 
-.player-one{
-    border: 10px solid blue;
+.player-one {
+    /* border: 10px solid blue; */
+    background-image:url("../images/purplebear.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 120px;
+    background-position: center;
+    
 }
-.player-two{
-    border: 10px solid orange;
+.player-two {
+    /* border: 10px solid orange; */
+    background-image:url("../images/fish.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: 140px;
+    background-position: center;
+    
+
 }
 
-.result-message button{
-    width:100px;
+.result-message button {
+    width:130px;
+    height: 80px;
     color: rgb(255, 255, 255);
-    font-size: 12px;
-    padding:12px;
-    background:rgb(182, 54, 150);
+    font-size: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    padding:10px;
+    background:rgb(246, 124, 30);
     border:0;
-    border-radius: 10px;
+    border-radius: 60px;
     outline:none;
     margin-top: 20px;
+    box-shadow: 5px 5px 10px 5px #580c47;
+    
+
 }
 
-.winning-message button:hover{
+.winning-message button:hover {
     background: #986c7b;
     color: #fff;
     cursor: pointer;
@@ -96,7 +181,7 @@ h1{
   color: white;
   font-size: 100px;
   flex-direction: column;
-  font-family: 'Lato', sans-serif; 
+  font-family: 'Josefin Sans', sans-serif;
   
 }
 
@@ -106,9 +191,24 @@ h1{
 
 
 
+p {
+    position: static;
+    height: 30px;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 120px;
+    padding-left: 50px;
+}
 
-
-
+/* @media (min-width:600px) {
+  nav {
+    float: left;
+    width: 25%;
+  }
+  section {
+    margin-left: 25%;
+  }
+} */
 
 
 

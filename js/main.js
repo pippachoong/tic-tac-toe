@@ -26,6 +26,14 @@ let playerTwo = null;
 const resultMessage = document.getElementById('resultMessage') //for DOM to show result
 const resultMessageText = document.querySelector('#result-text')//for DOM to show result
 const restartButton = document.getElementById('button')
+const audio = new Audio("audio/Chocolate_grows.ogg")
+const audioResult = new Audio("audio/Square_removed2.ogg")
+const audioRestart = new Audio("audio/Nut_out1.ogg")
+
+//to track the scores 
+let playerOneScore = 0;
+let playerTwoScore = 0;
+const scorePoint = 1;
 
 
 //click one box and register the box is clicked
@@ -48,16 +56,19 @@ $('.box').on('click', function () {
         console.log("game end!")
         return
     }
-    if (playerOnesTurn === true) {
-        playerOne = $(this).addClass('player-one')//register when box is clicked
+    if (playerOnesTurn === true) { //in JS
+        playerOne = $(this).addClass('player-one')//register when box is clicked for DOM. 
         boxes[idBox] = "playerOne"//update idBox to playerOne
+        audio.play();
     } else {
-        playerTwo = $(this).addClass('player-two');//register when box is clicked
+        playerTwo = $(this).addClass('player-two');//register when box is clicked for DOM. 
         boxes[idBox] = "playerTwo"//update idBox to playerTwo
+        audio.play();
     }
     changeTurns()
     resultDraw()
     resultWin()
+    updateScore();
 
     // console.log(boxes)
     console.log(boxes[idBox])
@@ -100,9 +111,18 @@ const resultWin = function () {
             winningCombos[i][1] === winningCombos[i][2] &&
             winningCombos[i][0] !== null
         ) {
-            winner = winningCombos[i][0]
+            winner = winningCombos[i][0]//output playerOne or playerTwo
+            let winnerPrettyName = null;
+            if (winner === "playerOne") {
+                winnerPrettyName = "Player One"
+                playerOneScore += scorePoint
+            } else {
+                winnerPrettyName = "Player Two"
+                playerTwoScore += scorePoint
+            }
             console.log(`We have a winner!Congratulations ${winner}!`)
-            resultMessageText.innerText = `${winner} wins!`
+            resultMessageText.innerText = `${winnerPrettyName} wins!`
+            audioResult.play();
             resultMessage.classList.add('show')
             gameActive = false //if game is not active, it stops 
             return winner
@@ -124,12 +144,17 @@ const resetFunction = function () {
 $("#restart").on('click', function () {
     console.log(`restart!`)
     resetFunction();//clear JS function
+    audioRestart.play()
     $('.box').removeClass('player-one player-two');//clear the DOM
     resultMessage.classList.remove('show')
     gameActive = true
-
 });
 
+//update score on scoreboard
+const updateScore = function () {
+    $('#playerone-score').text(`${playerOneScore}`)
+    $('#playertwo-score').text(`${playerTwoScore}`)
+};
 
 
 
