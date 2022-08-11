@@ -63,10 +63,10 @@ nav {
 img.gummybear {
     -webkit-animation: mover 1s infinite  alternate;
     animation: mover 1s infinite  alternate;
-    width: 6%;
-    top: 19px;
+    width: 3%;
+    top: 29px;
     position: absolute;
-    left: 141px;
+    left: 1023px;
 }
 @keyframes mover {
     0% { transform: translateY(0); }
@@ -105,14 +105,6 @@ a {
     margin-top: 10px;
 
 }/*this is the player score box*/
-
-/* ul{
-    left: 66px;
-    list-style: none;
-    display: inline-block;
-    margin-left:  95px;
-    margin-top: 60px;
-} */
 
 #bot-challenge-text {
     color: rgb(255, 255, 255);
@@ -191,7 +183,11 @@ label:active:after {
     border-radius: 60px;
     text-align: justify;
 }
-
+.box:hover {
+    background: rgb(171, 247, 222,0.2);
+    color:  rgb(171, 247, 222,0.7);
+    cursor: pointer;
+}
 
 .player-one {
     background-image:url("../images/purplebear.png");
@@ -224,8 +220,6 @@ label:active:after {
     outline:none;
     margin-top: 20px;
     box-shadow: 5px 5px 10px 5px #580c47;
-    
-
 }
 
 .winning-message button:hover {
@@ -248,14 +242,11 @@ label:active:after {
   font-size: 100px;
   flex-direction: column;
   font-family: 'Josefin Sans', sans-serif;
-  
 }
 
 .result-message.show {
   display: flex;
 }
-
-
 
 p {
     position: static;
@@ -263,23 +254,61 @@ p {
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
     padding-top: 120px;
-    padding-left: 50px;
+    padding-left: 80px;
 }
 
+#welcome-body{
+    background-image:url("../images/entry.jpeg");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+    background-color: #580c47;
+}
 
 #welcome {
     color: rgb(255, 255, 255);
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 40px;
+    font-size: 82px;
     font-weight:bold;
     top: auto; 
-    padding-top: 50px;
     letter-spacing: 5px;
-
+    padding-left: 650px;
+    border-right-style: solid;
+    padding-right: 650px;
+    text-align: justify;
+    padding-top: 150px;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
 }
 
 
 .result-message button {
+    width: 105px;
+    height: 45px;   
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    padding:10px;
+    background:rgb(246, 124, 30);
+    border:0;
+    border-radius: 60px;
+    outline:none;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px 5px #580c47;
+}
+
+.entergame button:hover {
+    background: #986c7b;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.entergame button {
     width:130px;
     height: 80px;
     color: rgb(255, 255, 255);
@@ -293,27 +322,20 @@ p {
     outline:none;
     margin-top: 20px;
     box-shadow: 5px 5px 10px 5px #580c47;
-    
-
 }
 
-.winning-message button:hover {
-    background: #986c7b;
-    color: #fff;
-    cursor: pointer;
+.entergame{
+    padding-top: 50px;
+    padding-left: 100px;
 }
 
-/* @media (min-width:600px) {
-  nav {
-    float: left;
-    width: 25%;
-  }
-  section {
-    margin-left: 25%;
-  }
-} */
-
-
+#copyright{
+     color: rgb(107, 107, 107);
+}
+ footer{
+    bottom: 0px;
+    padding-top: 150px;
+ }
 
 
 

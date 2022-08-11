@@ -106,12 +106,9 @@ const robotFunction = function () {
         resultWin()
         updateScore()
     }
-
 };
 
-
-
-//button to activate robot
+//button to activate robot//
 let robotButtonActivated = function () {
     console.log("robot activated");
     playerRobotsTurn = !playerRobotsTurn;
@@ -169,7 +166,6 @@ const resultWin = function () {
     }
 };
 
-
 const resetFunction = function () {
     for (const key in boxes) {
         boxes[key] = null
@@ -181,7 +177,6 @@ const resetFunction = function () {
 //what to expect after the reset in the box - show all null
 
 $("#restart").on('click', function () {
-
     console.log(`restart!`)
     resetFunction();//clear JS function
     audioRestart.play()
@@ -195,21 +190,3 @@ const updateScore = function () {
     $('#playerone-score').text(`${playerOneScore}`)
     $('#playertwo-score').text(`${playerTwoScore}`)
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

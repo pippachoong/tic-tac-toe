@@ -1,6 +1,8 @@
-Welcome to the Tic Tac Toe Game
+Welcome to Tic Tac Toe 
 
 Link to the game:
+
+
 
 Rules: 
 
