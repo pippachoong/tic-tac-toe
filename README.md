@@ -1,34 +1,35 @@
 Welcome to Tic Tac Toe 
 
 Link to the game:
+https://pippachoong.github.io/tic-tac-toe/
 
 
+Image here
 
-Rules: 
+Description:
+This game is inspired by Candy Crush where it involves crushing as many sugar confectionary to earn points by matching 3 similar candies. 
+
+This tic tac toe game involves 2 players. Basically, in order to win the game, place 3 similar of your marks in a row: horizontal, vertical, or diagonal. 
+
+There is also an option to challenge a robot where it is located on top of the scoreboard.
+
+Tech used in this games are HTML, JS, CSS and jQuery. 
+
+
 
 Issues:
-
-Wish list:
-
+1. The toggle button on web is not able to turn off and on like a normal switch button. More time needed to explore how the CSS and JS can work. 
 
 
-    Render a game board in the browser
+Wish lists:
+1. This game would be able to adapt to other electronic media devices like phone, tables by using  media queries in CSS. 
+2. As the game is inspired by Candy Crush, hope to learn more about CSS animations such as bursting effect of the candies once 3 similar candies are matched. 
 
-    Switch turns between X and O (or whichever markers you select); your game should prevent users from playing a turn into a square that is already occupied
 
-    Visually display which side won if a player gets three in a row; or show a draw/"cat’s game" if neither wins
-
-    Include separate HTML / CSS / JavaScript files
+    
 
 
 
 
 
-
-    Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
-
-    Use Javascript with jQuery (or vanilla DOM methods if you really prefer) for DOM manipulation
-
-    Deploy your game online, where the rest of the world can access it
-
-    Use semantic markup for HTML and CSS (adhere to best practices)
+    

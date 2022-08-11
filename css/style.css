@@ -274,14 +274,14 @@ p {
     font-weight:bold;
     top: auto; 
     letter-spacing: 5px;
-    padding-left: 650px;
-    border-right-style: solid;
-    padding-right: 650px;
     text-align: justify;
     padding-top: 150px;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
+    margin: 0 auto;
+    text-align: center;
+    width: 500px;
 }
 
 
@@ -322,20 +322,11 @@ p {
     outline:none;
     margin-top: 20px;
     box-shadow: 5px 5px 10px 5px #580c47;
+    margin: 0 auto;
 }
 
-.entergame{
-    padding-top: 50px;
-    padding-left: 100px;
-}
 
 #copyright{
      color: rgb(107, 107, 107);
 }
- footer{
-    bottom: 0px;
-    padding-top: 150px;
- }
-
-
-
+ 
