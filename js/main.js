@@ -183,6 +183,7 @@ $("#restart").on('click', function () {
     $('.box').removeClass('player-one player-two');//clear the DOM
     resultMessage.classList.remove('show')
     gameActive = true
+    playerOnesTurn = true
 });
 
 //update score on scoreboard
