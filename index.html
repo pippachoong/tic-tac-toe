@@ -5,65 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac Toe - Welcome </title>
 </head>
-<body>
-<div class="clearfix">
-    <header>
+<body id="welcome-body" >
+<div >
+    
+    <section id= welcome>
+
+          Click the button to enter!
+         <div class="entergame">
         
-        <h1> Tic Tac Toe</h1>
-
-    </header>
-
-
-    
-    
-    
-    <nav>
-        <div id="bot-challenge-text"> Challenge the Bot</div>
-        <input type="checkbox" id="switch" /><label for="switch">Toggle</label>
-        <div class="scoreboard">
-            <h3> Player 1 </h3>
-            <div class="score" id="playerone-score">0</div>
+        <button type="button" id="enter"> <a href="index.html">Enter</a> </button>
         </div>
-
-        <div class="scoreboard">
-            <h3> Player 2 </h3>
-            <div class="score" id="playertwo-score">0</div>
-        </div>
-    </nav>
-    
-    
-    <section id="gameboard">                        
-        
-        <div class="box" id="1a"> </div>                        
-        <div class="box" id="1b"> </div>                        
-        <div class="box" id="1c"> </div>                        
-        <div class="box" id="2a"> </div>                        
-        <div class="box" id="2b"> </div>                        
-        <div class="box" id="2c"> </div>
-        <div class="box" id="3a"> </div>                        
-        <div class="box" id="3b"> </div>
-        <div class="box" id="3c"> </div>
-        
     </section>
-    <img src="images/gummybear.png" class="gummybear"/>
+    
+    <footer>
+        <p id = "copyright"> © Philippa Choong 2022 </p>
+    </footer>
 </div>
-
-
-
-<div class="result-message" id="resultMessage">
-    <div id="result-text"></div>
-    <button type="button" id="restart"> Restart </button>
-</div>
-
-
-<footer>
-    <p id = "copyright"> © Philippa Choong 2022 </p>
-</footer>
-
-
-
 
 </body>
 <script src="js/jquery.js"></script>
