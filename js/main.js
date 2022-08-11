@@ -1,5 +1,27 @@
 console.log("tic tac toe")
 
+//if first click, it will be player 1 starting
+// second click will be player two's turn 
+let playerOnesTurn = true
+let winner = null;
+let draw = null;
+let gameActive = true; // stop game after player has won
+let playerOne = null;
+let playerTwo = null;
+const resultMessage = document.getElementById('resultMessage') //for DOM to show result
+const resultMessageText = document.querySelector('#result-text')//for DOM to show result
+const restartButton = document.getElementById('button')
+const audio = new Audio("audio/Chocolate_grows.ogg")
+const audioResult = new Audio("audio/Square_removed2.ogg")
+const audioRestart = new Audio("audio/Nut_out1.ogg")
+const audioWin = new Audio("audio/Sweet!.ogg")
+//below to track the scores. 
+let playerOneScore = 0;
+let playerTwoScore = 0;
+const scorePoint = 1;
+
+let playerRobotsTurn = null;
+
 //identify each boxes from HTML
 let boxes = {
     '1a': null,
@@ -13,29 +35,6 @@ let boxes = {
     '3c': null,
 };
 
-//if first click, it will be player 1 starting
-// second click will be player two's turn 
-let playerOnesTurn = true
-
-//if "playerOne" or "playerTwo" get 3 similar box in array, they win
-let winner = null;
-let draw = null;
-let gameActive = true; // stop game after player has won
-let playerOne = null;
-let playerTwo = null;
-const resultMessage = document.getElementById('resultMessage') //for DOM to show result
-const resultMessageText = document.querySelector('#result-text')//for DOM to show result
-const restartButton = document.getElementById('button')
-const audio = new Audio("audio/Chocolate_grows.ogg")
-const audioResult = new Audio("audio/Square_removed2.ogg")
-const audioRestart = new Audio("audio/Nut_out1.ogg")
-
-//to track the scores 
-let playerOneScore = 0;
-let playerTwoScore = 0;
-const scorePoint = 1;
-
-
 //click one box and register the box is clicked
 //each boxes are identified by their own id
 const changeTurns = function () {
@@ -45,6 +44,21 @@ const changeTurns = function () {
 
 //how to identify player one select which box. player one will always start first - blue
 //how to identify player two select which box - orange
+function getRandomPick() {
+    let nestedArraysofResults = Object.entries(boxes) //e.g [['1a', null], ['1b',playerOne ],...]
+    let boxesThatAreNull = [] // only contain null boxes with end result: ['1a', '2b' '3c']
+
+    for (let i = 0; i < nestedArraysofResults.length; i++) {
+        const arrayOfResults = nestedArraysofResults[i];//gives format of ['1a',null] for example
+        // if the box is null, push it to the boxesThatAreNull array
+        if (arrayOfResults.includes(null)) {
+            boxesThatAreNull.push(arrayOfResults[0])
+        }
+    }  // boxesThatAreNull is an array
+
+    return boxesThatAreNull[Math.floor(Math.random() * boxesThatAreNull.length)];
+}
+
 $('.box').on('click', function () {
     let idBox = $(this).attr('id') // saved clicked boxes and save into a variable
 
@@ -57,35 +71,60 @@ $('.box').on('click', function () {
         return
     }
     if (playerOnesTurn === true) { //in JS
-        playerOne = $(this).addClass('player-one')//register when box is clicked for DOM. 
+        $(this).addClass('player-one')//register when box is clicked for DOM. 
         boxes[idBox] = "playerOne"//update idBox to playerOne
-        audio.play();
+        audio.play()
+
     } else {
-        playerTwo = $(this).addClass('player-two');//register when box is clicked for DOM. 
+        $(this).addClass('player-two');//register when box is clicked for DOM. 
         boxes[idBox] = "playerTwo"//update idBox to playerTwo
-        audio.play();
+        audio.play()
     }
+
     changeTurns()
     resultDraw()
     resultWin()
-    updateScore();
-
+    updateScore()
+    setTimeout(robotFunction, 500)
     // console.log(boxes)
     console.log(boxes[idBox])
 });
 
+const robotFunction = function () {
 
+    if (gameActive === false) {//boxes not to be overriden
+        console.log("game end!")
+        return
+    }
+    if (playerRobotsTurn === true) {
+        const randomId = getRandomPick();//make it var for Dom
+        boxes[randomId] = "playerTwo";
+        $(`#${randomId}`).addClass('player-two')//jQuery searches for div with the specified id
+        audio.play()
+        changeTurns()
+        resultDraw()
+        resultWin()
+        updateScore()
+    }
+
+};
+
+
+
+//button to activate robot
+let robotButtonActivated = function () {
+    console.log("robot activated");
+    playerRobotsTurn = !playerRobotsTurn;
+};
+$("#switch").on("click", robotButtonActivated);
 
 const resultDraw = function () {
-
     // Object.values(boxes) = show which boxes are taken(playerOne/playerTwo/null) in an array form. 
     //if there is no null in the object Boxes (boxes filled) && no win, it is a tie 
     if (Object.values(boxes).includes(null) === false) { //if there's no null in the array
         console.log('It is a tie!')
         resultMessageText.innerText = 'It is a Tie!'
         resultMessage.classList.add('show')
-
-
     }
 };
 
@@ -122,7 +161,7 @@ const resultWin = function () {
             }
             console.log(`We have a winner!Congratulations ${winner}!`)
             resultMessageText.innerText = `${winnerPrettyName} wins!`
-            audioResult.play();
+            audioWin.play()
             resultMessage.classList.add('show')
             gameActive = false //if game is not active, it stops 
             return winner
@@ -142,6 +181,7 @@ const resetFunction = function () {
 //what to expect after the reset in the box - show all null
 
 $("#restart").on('click', function () {
+
     console.log(`restart!`)
     resetFunction();//clear JS function
     audioRestart.play()

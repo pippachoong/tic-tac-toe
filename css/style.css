@@ -14,7 +14,6 @@
 *{
     margin: 0;
     padding: 0;
-
 }
 
 body {
@@ -58,8 +57,22 @@ nav {
     background-color: #ef8d7c;
     border-radius: 60px;
     box-shadow: 5px 5px 10px 5px #89512c;
-    
 }
+
+/*---------*/
+img.gummybear {
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+    width: 6%;
+    top: 19px;
+    position: absolute;
+    left: 141px;
+}
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+/*---------*/
 
 a {
     color: rgb(255, 255, 255);
@@ -93,13 +106,69 @@ a {
 
 }/*this is the player score box*/
 
-ul{
+/* ul{
     left: 66px;
     list-style: none;
     display: inline-block;
     margin-left:  95px;
     margin-top: 60px;
+} */
+
+#bot-challenge-text {
+    color: rgb(255, 255, 255);
+    font-family: 'Josefin Sans', sans-serif;
+     margin-left: 55px;
+    margin-top: 70px;
+    font-size: 20px;
+    font-weight:bold;
 }
+
+/*---- toggle switch----*/
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 50px;
+  height: 25px;
+  background: grey;
+  display: block;
+  border-radius: 50px;
+  position: relative;
+  margin: 0 auto;
+  
+}
+
+label:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left:1px;
+  width: 22.5px;
+  height: 22.5px;
+  background: #fff;
+  border-radius: 22.5px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #a600ff;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 32.5px;
+}
+
+/*------*/
 
 #gameboard {
     height: 550px;
@@ -125,24 +194,21 @@ ul{
 
 
 .player-one {
-    /* border: 10px solid blue; */
     background-image:url("../images/purplebear.png");
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 120px;
     background-position: center;
-    
 }
+
 .player-two {
-    /* border: 10px solid orange; */
     background-image:url("../images/fish.png");
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: 140px;
     background-position: center;
-    
-
 }
+
 
 .result-message button {
     width:130px;
@@ -198,6 +264,43 @@ p {
     font-family: 'Josefin Sans', sans-serif;
     padding-top: 120px;
     padding-left: 50px;
+}
+
+
+#welcome {
+    color: rgb(255, 255, 255);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    font-weight:bold;
+    top: auto; 
+    padding-top: 50px;
+    letter-spacing: 5px;
+
+}
+
+
+.result-message button {
+    width:130px;
+    height: 80px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+    padding:10px;
+    background:rgb(246, 124, 30);
+    border:0;
+    border-radius: 60px;
+    outline:none;
+    margin-top: 20px;
+    box-shadow: 5px 5px 10px 5px #580c47;
+    
+
+}
+
+.winning-message button:hover {
+    background: #986c7b;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* @media (min-width:600px) {
