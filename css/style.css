@@ -32,7 +32,7 @@ header {
 h1 {
     color: rgb(255, 255, 255);
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 60px;
+    font-size: 80px;
     font-weight:bold;
     top: auto; 
     padding-top: 50px;
@@ -40,6 +40,9 @@ h1 {
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
 }
 
 .clearfix {
@@ -65,9 +68,11 @@ img.gummybear {
     animation: mover 1s infinite  alternate;
     width: 3%;
     top: 29px;
-    position: absolute;
-    left: 1023px;
+    position: static;
+    margin-left: 563px;
+    margin-top: -143px;
 }
+
 @keyframes mover {
     0% { transform: translateY(0); }
     100% { transform: translateY(-20px); }
@@ -87,6 +92,7 @@ a {
     font-family: 'Josefin Sans', sans-serif;
     margin-left: 90px;
     margin-top: 77px;
+    font-size: 16px;
 }
 
 .score{
@@ -109,9 +115,9 @@ a {
 #bot-challenge-text {
     color: rgb(255, 255, 255);
     font-family: 'Josefin Sans', sans-serif;
-     margin-left: 55px;
+    margin-left: 40px;
     margin-top: 70px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight:bold;
 }
 
@@ -184,7 +190,7 @@ label:active:after {
     text-align: justify;
 }
 .box:hover {
-    background: rgb(171, 247, 222,0.2);
+    opacity: 0.5;
     color:  rgb(171, 247, 222,0.7);
     cursor: pointer;
 }

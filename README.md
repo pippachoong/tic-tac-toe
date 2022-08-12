@@ -11,7 +11,7 @@ This tic tac toe game involves 2 players. Basically, in order to win the game, p
 
 There is also an option to challenge a robot where it is located on top of the scoreboard.
 
-Tech used in this games are HTML, JS, CSS and jQuery. 
+Tech used in this games are HTML, JS, CSS and jQuery. HTML used for the webpage's overall body structure, JS is used to create interactive features for users, some jQuery used for DOM manipulation and CSS adds another layer to beautify the webpage. 
 
 
 
@@ -22,6 +22,7 @@ Tech used in this games are HTML, JS, CSS and jQuery.
 ### Wish lists:
 1. This game would be able to adapt to other electronic media devices like phones, tablets by using media queries in CSS. 
 2. As the game is inspired by Candy Crush, hope to learn more about CSS animations such as bursting effect of the candies once 3 similar candies are matched. 
+3. Adding more types of confectionary so players can pick and choose their favourite candy for the game. 
 
 
     

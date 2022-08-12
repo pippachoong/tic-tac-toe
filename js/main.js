@@ -1,27 +1,14 @@
 console.log("tic tac toe")
-
+//Game Logic-----------------
 //if first click, it will be player 1 starting
 // second click will be player two's turn 
 let playerOnesTurn = true
+let playerRobotsTurn = null;
+let playerOne = null;
+let playerTwo = null;
 let winner = null;
 let draw = null;
 let gameActive = true; // stop game after player has won
-let playerOne = null;
-let playerTwo = null;
-const resultMessage = document.getElementById('resultMessage') //for DOM to show result
-const resultMessageText = document.querySelector('#result-text')//for DOM to show result
-const restartButton = document.getElementById('button')
-const audio = new Audio("audio/Chocolate_grows.ogg")
-const audioResult = new Audio("audio/Square_removed2.ogg")
-const audioRestart = new Audio("audio/Nut_out1.ogg")
-const audioWin = new Audio("audio/Sweet!.ogg")
-//below to track the scores. 
-let playerOneScore = 0;
-let playerTwoScore = 0;
-const scorePoint = 1;
-
-let playerRobotsTurn = null;
-
 //identify each boxes from HTML
 let boxes = {
     '1a': null,
@@ -35,31 +22,25 @@ let boxes = {
     '3c': null,
 };
 
-//click one box and register the box is clicked
-//each boxes are identified by their own id
-const changeTurns = function () {
-    playerOnesTurn = !playerOnesTurn
-    //               ^ if was false, make it true and vice versa
-};
+//Game scores -------------------
+let playerOneScore = 0;
+let playerTwoScore = 0;
+const scorePoint = 1;
 
-//how to identify player one select which box. player one will always start first - blue
-//how to identify player two select which box - orange
-function getRandomPick() {
-    let nestedArraysofResults = Object.entries(boxes) //e.g [['1a', null], ['1b',playerOne ],...]
-    let boxesThatAreNull = [] // only contain null boxes with end result: ['1a', '2b' '3c']
+//DOM  ------------
+const resultMessage = document.getElementById('resultMessage') //for DOM to show result
+const resultMessageText = document.querySelector('#result-text')//for DOM to show result
+const restartButton = document.getElementById('button')
+const audio = new Audio("audio/Chocolate_grows.ogg")
+const audioResult = new Audio("audio/Square_removed2.ogg")
+const audioRestart = new Audio("audio/Nut_out1.ogg")
+const audioWin = new Audio("audio/Sweet!.ogg")
+//---------------
 
-    for (let i = 0; i < nestedArraysofResults.length; i++) {
-        const arrayOfResults = nestedArraysofResults[i];//gives format of ['1a',null] for example
-        // if the box is null, push it to the boxesThatAreNull array
-        if (arrayOfResults.includes(null)) {
-            boxesThatAreNull.push(arrayOfResults[0])
-        }
-    }  // boxesThatAreNull is an array
 
-    return boxesThatAreNull[Math.floor(Math.random() * boxesThatAreNull.length)];
-}
+//Click handler functions-----------------------
+const gameStart = function () {
 
-$('.box').on('click', function () {
     let idBox = $(this).attr('id') // saved clicked boxes and save into a variable
 
     if (boxes[idBox] !== null) {//boxes not to be overriden
@@ -88,8 +69,28 @@ $('.box').on('click', function () {
     setTimeout(robotFunction, 500)
     // console.log(boxes)
     console.log(boxes[idBox])
-});
+}
+$('.box').on('click', gameStart);
 
+const restartGame = function () {
+    console.log(`restart!`)
+    resetFunction();//clear JS function
+    audioRestart.play()
+    $('.box').removeClass('player-one player-two');//clear the DOM
+    resultMessage.classList.remove('show')
+    gameActive = true
+    playerOnesTurn = true
+};
+$("#restart").on('click', restartGame);
+
+const robotButtonActivated = function () {
+    console.log("robot activated");
+    playerRobotsTurn = !playerRobotsTurn;
+};
+$("#switch").on("click", robotButtonActivated);
+
+
+//Robot Function 
 const robotFunction = function () {
 
     if (gameActive === false) {//boxes not to be overriden
@@ -108,12 +109,33 @@ const robotFunction = function () {
     }
 };
 
-//button to activate robot//
-let robotButtonActivated = function () {
-    console.log("robot activated");
-    playerRobotsTurn = !playerRobotsTurn;
+const getRandomPick = function () {
+    let nestedArraysofResults = Object.entries(boxes) //e.g [['1a', null], ['1b',playerOne ],...]
+    let boxesThatAreNull = [] // only contain null boxes with end result: ['1a', '2b' '3c']
+
+    for (let i = 0; i < nestedArraysofResults.length; i++) {
+        const arrayOfResults = nestedArraysofResults[i];//gives format of ['1a',null] for example
+        // if the box is null, push it to the boxesThatAreNull array
+        if (arrayOfResults.includes(null)) {
+            boxesThatAreNull.push(arrayOfResults[0])
+        }
+    }  // boxesThatAreNull is an array
+
+    return boxesThatAreNull[Math.floor(Math.random() * boxesThatAreNull.length)];
 };
-$("#switch").on("click", robotButtonActivated);
+
+//Helper functions-------------------------------
+//click one box and register the box is clicked
+//each boxes are identified by their own id
+const changeTurns = function () {
+    // if (playerOnesTurn === true) {
+    //     playerOnesTurn = false
+    // } else { // meaning playerOnesTurn === false
+    //     playerOnesTurn = true
+    // }
+    playerOnesTurn = !playerOnesTurn
+    //               ^ if was false, make it true and vice versa
+};
 
 const resultDraw = function () {
     // Object.values(boxes) = show which boxes are taken(playerOne/playerTwo/null) in an array form. 
@@ -167,27 +189,19 @@ const resultWin = function () {
 };
 
 const resetFunction = function () {
+    //boxes show more detailed status of the game
+    //to reset board: think of what is the status of the board. before reset - there are no nulls.
+    //what to expect after the reset in the box - show all null
     for (const key in boxes) {
         boxes[key] = null
     }
 };
 
-//boxes show more detailed status of the game
-//to reset board: think of what is the status of the board. before reset - there are no nulls.
-//what to expect after the reset in the box - show all null
-
-$("#restart").on('click', function () {
-    console.log(`restart!`)
-    resetFunction();//clear JS function
-    audioRestart.play()
-    $('.box').removeClass('player-one player-two');//clear the DOM
-    resultMessage.classList.remove('show')
-    gameActive = true
-    playerOnesTurn = true
-});
-
-//update score on scoreboard
 const updateScore = function () {
     $('#playerone-score').text(`${playerOneScore}`)
     $('#playertwo-score').text(`${playerTwoScore}`)
 };
+
+
+
+
