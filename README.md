@@ -1,5 +1,7 @@
 # Welcome to Tic Tac Toe 
 
+This is my first project at General Assembly, applying what I have learnt in the past two weeks on JS, CSS and HTML. We only had 4 days to complete this project hence I have some wishlists that I want to work on! Hope you enjoy this simple game as much as I do :)
+
 Link to the game: [tictactoe](https://pippachoong.github.io/tic-tac-toe/)
 
 ![Pippa's Tic Tac Toe](/images/Tic_Tac_Toe.png)
@@ -23,6 +25,10 @@ Tech used in this games are HTML, JS, CSS and jQuery. HTML used for the webpage'
 1. This game would be able to adapt to other electronic media devices like phones, tablets by using media queries in CSS. 
 2. As the game is inspired by Candy Crush, hope to learn more about CSS animations such as bursting effect of the candies once 3 similar candies are matched. 
 3. Adding more types of confectionary so players can pick and choose their favourite candy for the game. 
+4. Possibility of turning off audio as a feature. 
+5. Tie counter. 
+6. Give users the option to Play Again or Reset the games and scores.
+
 
 
     
